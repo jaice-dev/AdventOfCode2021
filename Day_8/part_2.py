@@ -4,19 +4,9 @@ with open('input.txt') as file:
 
 total = 0
 for line in lines:
-    # print(line)
     unique_combinations = set(line[0])
     combinations = {}
 
-    # for comb in unique_combinations:
-    #     if len(comb) == 2:
-    #         combinations[1] = comb
-    #     if len(comb) == 4:
-    #         combinations[4] = comb
-    #     if len(comb) == 3:
-    #         combinations[7] = comb
-    #     if len(comb) == 7:
-    #         combinations[8] = comb
     combinations[1] = [comb for comb in unique_combinations if len(comb) == 2][0]
     combinations[7] = [comb for comb in unique_combinations if len(comb) == 3][0]
     combinations[4] = [comb for comb in unique_combinations if len(comb) == 4][0]
@@ -42,11 +32,9 @@ for line in lines:
 
     output = ""
     for num in line[1]:
-        for key , value in combinations.items():
+        for key, value in combinations.items():
             if set(value) == set(num):
                 output += str(key)
     total += int(output)
 
 print(total)
-
-
